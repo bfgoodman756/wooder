@@ -1,0 +1,237 @@
+.navBurger {
+  position: relative;
+  cursor: pointer;
+  background: #e0c795;
+  box-sizing: border-box;
+  background-clip: content-box;
+  width: 33px;
+  height: 23px;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  margin-left: 30px;
+  margin-bottom: 1px;
+}
+.navBurger:before, .navBurger:after {
+  content: "";
+  position: absolute;
+  background: #bea67c;
+  height: 1px;
+  width: 33px;
+  right: 0;
+  will-change: rotate;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.navBurger:before {
+  top: -10px;
+}
+.navBurger:after {
+  bottom: -10px;
+  width: 33px;
+}
+.navBurger.active {
+  background: transparent;
+  background-clip: content-box;
+  z-index: 1;
+  position: fixed;
+}
+.navBurger.active:before {
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+  top: 0;
+  background: #e0c795;
+  width: 110%;
+}
+.navBurger.active:after {
+  bottom: 0;
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+  background: #e0c795;
+  width: 110%;
+}
+.overlay {
+  position: fixed;
+  background: rgba(17, 18, 15, 0.85);
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 100%;
+
+  transform-origin: left top;
+  transform: scale(0);
+  visibility: hidden;
+  transition: all 0.4s ease-in-out;
+  z-index: 1;
+}
+.overlay.open {
+  opacity: 0.93;
+  visibility: visible;
+  transform: scale(1);
+}
+.overlay.open li {
+  display: block;
+  animation: fadeInRight 0.4s cubic-bezier(0.42, 0.83, 0.7, 1.5) forwards;
+  animation-delay: 0.2s;
+  transform: rotate(-6deg);
+  transform-origin: left top;
+}
+.overlay.open li:nth-of-type(2) {
+  animation-delay: 0.3s;
+}
+.overlay.open li:nth-of-type(3) {
+  animation-delay: 0.4s;
+}
+.overlay.open li:nth-of-type(4) {
+  animation-delay: 0.5s;
+}
+.overlay.open li:nth-of-type(5) {
+  animation-delay: 0.6s;
+}
+.overlayMenu {
+  position: absolute;
+  text-align: left;
+  left: 45px;
+  top: 100px;
+}
+.overlayMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  height: 100%;
+}
+.overlayMenu ul li {
+  display: block;
+  position: relative;
+  opacity: 0;
+}
+.overlayMenu ul li a {
+  display: inline-block;
+  border: 1px solid rgba(224, 199, 149, 0.4);
+  color: #e0c795;
+  text-decoration: none;
+  font-size: 30px;
+  padding: 10px 40px 10px 40px;
+  margin: 5px 0;
+  transition: 0.2s;
+}
+.overlayMenu ul li a:hover, .overlayMenu ul li a:active, .overlayMenu ul li a:focus {
+  transform: translateX(-2px);
+  padding-left: 60px;
+  outline: 1px solid rgba(224, 199, 149, 0.8);
+  background: rgba(255, 255, 255, 0.03);
+}
+.locked {
+
+}
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 50px;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .navBurger:before {
+    top: -10px;
+  }
+  .navBurger:after {
+    bottom: -10px;
+    width: 33px;
+  }
+  .navBurger.active {
+    background: transparent;
+    background-clip: content-box;
+    z-index: 1;
+    position: fixed;
+  }
+  .overlay {
+    position: fixed;
+    background: rgba(17, 18, 15, 0.95);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    transform-origin: left top;
+    transform: scale(0);
+    visibility: hidden;
+    transition: all 0.4s ease-in-out;
+    z-index: 1;
+  }
+  .overlay.open {
+    opacity: 0.96;
+    visibility: visible;
+    transform: scale(1);
+  }
+  .overlay.open li {
+    display: block;
+    animation: fadeInRight 0.4s cubic-bezier(0.42, 0.83, 0.7, 1.5) forwards;
+    animation-delay: 0.2s;
+    transform: rotate(-6deg);
+    transform-origin: left top;
+  }
+  .overlay.open li:nth-of-type(2) {
+    animation-delay: 0.2s;
+  }
+  .overlay.open li:nth-of-type(3) {
+    animation-delay: 0.3s;
+  }
+  .overlay.open li:nth-of-type(4) {
+    animation-delay: 0.4s;
+  }
+  .overlay.open li:nth-of-type(5) {
+    animation-delay: 0.5s;
+  }
+  .overlayMenu {
+    position: relative;
+    text-align: center;
+    left: auto;
+    top: auto;
+    margin-top: 150px;
+  }
+  .overlayMenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    height: 100%;
+  }
+  .overlayMenu ul li {
+    display: block;
+    position: relative;
+    opacity: 0;
+  }
+  .overlayMenu ul li a {
+    display: inline-block;
+    border: 1px solid rgba(224, 199, 149, 0.4);
+    color: #e0c795;
+    text-decoration: none;
+    font-size: 6vw;
+    padding: 10px 40px 10px 40px;
+    margin: 5px 0;
+    transition: 0.2s;
+  }
+  .overlayMenu ul li a:hover, .overlayMenu ul li a:active, .overlayMenu ul li a:focus {
+    transform: translateX(-2px);
+    padding-left: 20px;
+    outline: 1px solid rgba(224, 199, 149, 0.8);
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .locked {
+
+  }
+}
